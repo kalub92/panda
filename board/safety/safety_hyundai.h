@@ -78,8 +78,6 @@ AddrCheckStruct hyundai_long_addr_checks[] = {
 AddrCheckStruct hyundai_legacy_addr_checks[] = {
   {.msg = {{608, 0, 8, .check_checksum = true, .max_counter = 3U, .expected_timestep = 10000U},
            {881, 0, 8, .expected_timestep = 10000U}, { 0 }}},
-  {.msg = {{902, 0, 8, .check_checksum = true, .max_counter = 15U, .expected_timestep = 10000U}, { 0 }, { 0 }}},
-  {.msg = {{916, 0, 8, .check_checksum = true, .max_counter = 7U, .expected_timestep = 10000U}, { 0 }, { 0 }}},
   {.msg = {{1057, 0, 8, .check_checksum = true, .max_counter = 15U, .expected_timestep = 20000U}, { 0 }, { 0 }}},
 };
 #define HYUNDAI_LEGACY_ADDR_CHECK_LEN (sizeof(hyundai_legacy_addr_checks) / sizeof(hyundai_legacy_addr_checks[0]))
@@ -342,8 +340,8 @@ static const addr_checks* hyundai_init(uint16_t param) {
 
 static const addr_checks* hyundai_legacy_init(uint16_t param) {
   hyundai_common_init(param);
-  hyundai_legacy = false;
-  hyundai_longitudinal = true;
+  hyundai_legacy = true;
+  hyundai_longitudinal = false;
   hyundai_camera_scc = false;
 
   hyundai_rx_checks = (addr_checks){hyundai_legacy_addr_checks, HYUNDAI_LEGACY_ADDR_CHECK_LEN};
