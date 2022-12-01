@@ -342,7 +342,7 @@ static const addr_checks* hyundai_init(uint16_t param) {
 
 static const addr_checks* hyundai_legacy_init(uint16_t param) {
   hyundai_common_init(param);
-  hyundai_legacy = true;
+  hyundai_legacy = false;
   hyundai_longitudinal = true;
   hyundai_camera_scc = false;
 
